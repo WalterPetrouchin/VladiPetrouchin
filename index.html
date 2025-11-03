@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- UPDATED: Title with Vladi's name -->
+    <title>Vladi Petrouchin | GM Application for Mint Tiny House Company</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS for styling and animations -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+            color: #0f172a; /* slate-900 */
+        }
+        .section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 2rem;
+        }
+        /* New class for more compact sections */
+        .section-compact {
+            min-height: auto;
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        /* UPDATED: highlight-text class to use Mint's green/teal */
+        .highlight-text {
+            /* Using a teal gradient that matches Mint's branding */
+            background: linear-gradient(120deg, #14b8a6, #0d9488, #0f766e, #14b8a6);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient-move 8s ease-in-out infinite;
+        }
+        .scroll-indicator {
+            animation: bounce 2s infinite;
+        }
+
+        /* Keyframes for the gradient animation */
+        @keyframes gradient-move {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .memo-grid {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 0.5rem 1rem;
+        }
+        .memo-label {
+            font-weight: 600;
+            color: #64748b; /* slate-500 */
+        }
+        /* Mobile Menu Transition */
+        #mobile-menu {
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        /* --- Desktop Experience Overlay Styles --- */
+        #desktop-overlay {
+            transition: opacity 0.5s ease-in-out;
+        }
+        #desktop-overlay-content {
+            transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+            animation: fadeInContent 0.8s ease-out forwards;
+        }
+        @keyframes fadeInContent {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.98);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        .countdown-bar-inner {
+            animation: countdown 10s linear forwards;
+        }
+        @keyframes countdown {
+            from { width: 100%; }
+            to { width: 0%; }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Desktop Experience Overlay -->
+    <div id="desktop-overlay" class="fixed inset-0 z-[100] bg-slate-900/80 backdrop-blur-lg flex items-center justify-center p-6 text-center hidden">
+        <div id="desktop-overlay-content" class="relative bg-white rounded-2xl shadow-2xl p-8 md:p-12 max-w-lg w-full">
+            <div class="flex justify-center items-center h-16 w-16 rounded-full bg-slate-100 mx-auto mb-6 ring-4 ring-slate-200">
+                <svg class="h-8 w-8 text-slate-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-1.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25A2.25 2.25 0 015.25 3h13.5A2.25 2.25 0 0121 5.25z" />
+                </svg>
+            </div>
+            <h2 class="text-2xl font-bold text-slate-800">Best experienced on desktop</h2>
+            <p class="text-slate-600 mt-3">For the ideal viewing experience, please visit this site on a desktop browser at:</p>
+            <!-- UPDATED: Placeholder for new URL -->
+            <div class="mt-4 bg-slate-100 text-teal-600 font-semibold py-3 px-4 rounded-lg text-lg">
+                [YourFriendWebsiteURL.com]
+            </div>
+            <p id="countdown-text" class="text-xs text-slate-400 mt-6">Continuing to mobile in <span id="countdown-timer" class="font-semibold">10</span> seconds...</p>
+            <div class="absolute bottom-0 left-0 right-0 h-1.5 bg-slate-200 rounded-b-2xl overflow-hidden">
+                <!-- UPDATED: Bar color to teal -->
+                <div class="h-full bg-teal-600 countdown-bar-inner"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- UPDATED: Vladi's name -->
+            <a href="/" class="text-xl font-bold tracking-wider text-slate-800">VLADI PETROUCHIN</a>
+            
+            <!-- UPDATED: Desktop Navigation for GM role -->
+            <nav class="hidden lg:flex items-center space-x-6 text-sm font-medium text-slate-600">
+                <a href="/" class="text-teal-600 font-semibold transition-colors">Home</a>
+                <a href="resume.html" class="hover:text-teal-600 transition-colors">Resume</a>
+                <a href="projects.html" class="hover:text-teal-600 transition-colors">Projects</a>
+                <a href="fit.html" class="hover:text-teal-600 transition-colors">Leadership & Fit</a>
+                <a href="goals.html" class="hover:text-teal-600 transition-colors">90-Day Plan</a>
+                <a href="thankyou.html" class="hover:text-teal-600 transition-colors">Thank You</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <div class="lg:hidden">
+                <button id="mobile-menu-button" class="text-slate-800 focus:outline-none z-50">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+    <!-- UPDATED: Mobile Menu Overlay for GM role -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-white/95 backdrop-blur-lg flex flex-col items-center justify-center space-y-6 opacity-0 pointer-events-none lg:hidden">
+        <a href="/" class="text-2xl font-semibold text-teal-600">Home</a>
+        <a href="resume.html" class="text-2xl font-semibold text-slate-800">Resume</a>
+        <a href="projects.html" class="text-2xl font-semibold text-slate-800">Projects</a>
+        <a href="fit.html" class="text-2xl font-semibold text-slate-800">Leadership & Fit</a>
+        <a href="goals.html" class="text-2xl font-semibold text-slate-800">90-Day Plan</a>
+        <a href="thankyou.html" class="text-2xl font-semibold text-slate-800">Thank You</a>
+    </div>
+
+
+    <!-- Section 1: The Hook -->
+    <section id="hook" class="section flex-col relative overflow-hidden">
+        <div class="absolute inset-0 bg-grid-pattern opacity-10"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-slate-50"></div>
+        <div class="text-center z-10 fade-in">
+            <!-- UPDATED: Hook for Mint Tiny House Company GM role -->
+            <h1 class="font-extrabold tracking-tight text-slate-900">
+                <span class="block text-xl md:text-2xl lg:text-3xl font-medium text-slate-600 leading-normal">
+                    An application for the 
+                    <a href="https://recruiting.ultipro.ca/WES5008WESCO/JobBoard/93791131-021b-4384-b764-1d035eefa84b/OpportunityDetail?opportunityId=47ba3dd7-3173-478c-8041-099638d267c6" target="_blank" rel="noopener noreferrer" class="font-semibold text-slate-800 hover:text-teal-600 transition-colors underline decoration-slate-300 hover:decoration-teal-600 underline-offset-4">
+                        <strong class="font-semibold text-slate-800">General Manager, Modular Home Manufacturing</strong>
+                    </a>
+                    role at
+                </span>
+                <span class="block mt-2 text-5xl md:text-7xl lg:text-8xl highlight-text leading-tight">Mint Tiny House Company</span>
+            </h1>
+            <!-- UPDATED: Vladi's name -->
+            <p class="mt-8 text-sm text-slate-500">By Vladi Petrouchin</p>
+        </div>
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10">
+             <a href="#video" class="flex flex-col items-center text-slate-500 hover:text-slate-900 transition-colors">
+                <span class="text-xs">Get to know me</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mt-1 scroll-indicator" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <main>
+        <!-- Section 2: Headshot Introduction -->
+        <section id="video" class="section section-compact bg-white">
+            <div class="container mx-auto px-6 text-center fade-in">
+                <div class="mb-12">
+                    <!-- UPDATED: Color to teal -->
+                    <h2 class="text-sm font-bold uppercase tracking-widest text-teal-600">Introduction</h2>
+                    <p class="mt-3 text-3xl md:text-4xl font-bold text-slate-900 leading-snug">Meet Vladi Petrouchin</p>
+                </div>
+                <!-- UPDATED: Replaced video with headshot layout -->
+                <div class="max-w-4xl mx-auto flex flex-col items-center">
+                    <!-- Headshot Image -->
+                    <img src="https://placehold.co/256x256/e2e8f0/64748b?text=Vladi's%0AHeadshot" 
+                         alt="A headshot of Vladi Petrouchin" 
+                         class="h-64 w-64 rounded-full object-cover shadow-2xl shadow-slate-900/10 border-4 border-white ring-1 ring-slate-200">
+                    
+                    <!-- Text below image -->
+                    <p class="mt-8 max-w-2xl mx-auto text-lg text-slate-600">
+                        Hello. I'm Vladi Petrouchin, a "hands-on" executive leader with over 30 years of experience scaling high-end manufacturing and custom construction operations. This site is a brief introduction to my leadership philosophy and my strategic plan for this role.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: The Memo -->
+        <section id="memo" class="section section-compact">
+            <div class="container mx-auto px-6 fade-in">
+                <div class="text-center mb-12">
+                    <!-- UPDATED: Color to teal -->
+                    <h2 class="text-sm font-bold uppercase tracking-widest text-teal-600">My Approach</h2>
+                    <p class="mt-3 text-3xl md:text-4xl font-bold text-slate-900 leading-snug">My First Deliverable To You</p>
+                    <!-- UPDATED: Memo text for GM role -->
+                    <p class="mt-4 max-w-2xl mx-auto text-slate-600">The job description says you're looking for a "hands-on leader" and "strategic thinker" to build a "culture of accountability, innovation and collaboration." A standard resume can't prove that. This site is my first deliverable to show you I am that leader.</p>
+                </div>
+                
+                <div class="block group">
+                    <div class="max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-xl shadow-2xl shadow-slate-900/10 border border-slate-200 transition-all duration-300">
+                        <!-- UPDATED: Memo content for GM role -->
+                        <div class="memo-grid items-center mb-6 text-sm md:text-base">
+                            <p class="memo-label">TO:</p><p class="text-slate-800">Mint Tiny House Co. & Westbow Group Leadership</p>
+                            <p class="memo-label">FROM:</p><p class="text-slate-800">Vladi Petrouchin</p>
+                            <p class="memo-label">DATE:</p><p id="memo-date" class="text-slate-800"></p>
+                            <p class="memo-label">SUBJECT:</p><p class="font-semibold text-slate-900">Application for GM: A "People-First" Operator Ready to Build</p>
+                        </div>
+                        <hr class="border-slate-200 my-8">
+                        <div class="prose prose-slate max-w-none text-slate-600 space-y-4">
+                            <p><strong>Why:</strong> The job description emphasizes the need for a "hands-on leader" with a "big-picture mindset" to scale a high-growth manufacturing operation. A standard resume is insufficient to demonstrate this. This custom website is my solution—it's my first deliverable, designed to show you *how* I think, lead, and execute.</p>
+                            <p><strong>What:</strong> My mission is to prove I am the leader who can scale your manufacturing operations *without* losing the "hand-built" craftsmanship and "true integrity" that defines the Mint brand. I don't just manage production; I build "people-first" operational *engines* that drive efficiency, quality, and a culture of "continuous improvement."</p>
+                            <p><strong>How:</strong> This multi-page site is my application-in-action. It's organized to show my strategic fit for this specific role. Here you will find:<br>
+                            • <strong>Resume:</strong> My 30+ years of experience in high-end manufacturing and custom construction.<br>
+                            • <strong>Projects:</strong> A showcase of the high-end, custom projects I have managed.<br>
+                            • <strong>Leadership & Fit:</strong> A detailed breakdown of my leadership philosophy and how it aligns with Westbow's core values ("work smart," "build lasting value," "care," and "act with integrity").<br>
+                            • <strong>90-Day Plan:</strong> A proactive plan to build on your foundation and drive results from day one.</p>
+                            <p><strong>Now:</strong> I invite you to explore this site. Each section is a testament to the quality and strategic mindset I will bring to Mint Tiny House Company. I am ready to build the team for the future and am excited to discuss this with you.</p>
+                            <p class="pt-4">Thank you for your time and consideration.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Next Page -->
+        <section id="next-page" class="section-compact bg-white border-t border-slate-200">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-2xl font-bold text-slate-800 leading-normal">My Experience</h2>
+                <p class="mt-2 text-slate-600">The next page details my 30+ year background in operations and manufacturing.</p>
+                <div class="mt-8">
+                    <!-- UPDATED: Button color to teal -->
+                    <a href="resume.html" class="inline-flex items-center justify-center gap-x-3 bg-teal-600 text-white font-semibold py-3 px-8 rounded-lg hover:bg-teal-700 transition-colors text-lg shadow-md hover:shadow-lg transform hover:-translate-y-1">
+                        View My Resume
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-100 border-t border-slate-200">
+        <div class="container mx-auto px-6 py-8 text-center text-slate-500">
+            <!-- UPDATED: Vladi's info -->
+            <p class="font-semibold text-slate-700">Vladi Petrouchin</p>
+            <p class="text-sm">
+                <a href="mailto:vladipetrouchin@gmail.com" class="hover:text-teal-600 transition-colors">vladipetrouchin@gmail.com</a> | 310-390-1939
+            </p>
+            <!-- UPDATED: Removed LinkedIn -->
+        </div>
+    </footer>
+
+    <!-- JavaScript for interactivity -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- Desktop Experience Overlay Logic ---
+            const overlay = document.getElementById('desktop-overlay');
+            const countdownTimerEl = document.getElementById('countdown-timer');
+            const countdownTextEl = document.getElementById('countdown-text');
+            const DESKTOP_BREAKPOINT = 1024; // lg breakpoint in Tailwind
+
+            let countdownInterval;
+            let mainTimeout;
+
+            const hideOverlay = () => {
+                clearInterval(countdownInterval);
+                clearTimeout(mainTimeout);
+                overlay.style.opacity = '0';
+                setTimeout(() => {
+                    overlay.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }, 500); // Match CSS transition duration
+            };
+
+            if (window.innerWidth < DESKTOP_BREAKPOINT) {
+                overlay.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+
+                let secondsLeft = 10;
+                countdownTimerEl.textContent = secondsLeft;
+
+                countdownInterval = setInterval(() => {
+                    secondsLeft--;
+                    countdownTimerEl.textContent = secondsLeft;
+                    if (secondsLeft <= 0) {
+                        clearInterval(countdownInterval);
+                        countdownTextEl.textContent = "Continuing to mobile...";
+                    }
+                }, 1000);
+
+                mainTimeout = setTimeout(hideOverlay, 10000);
+
+                // Allow user to click to exit early
+                overlay.addEventListener('click', hideOverlay);
+            }
+
+
+            // --- Set Memo Date ---
+            const memoDate = document.getElementById('memo-date');
+            if(memoDate) {
+                memoDate.textContent = new Date().toLocaleString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+            }
+
+            // --- Header Scroll Effect ---
+            const header = document.getElementById('main-header');
+            if (header) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 50) {
+                        header.classList.add('glass-effect', 'shadow-lg');
+                    } else {
+                        header.classList.remove('glass-effect', 'shadow-lg');
+                    }
+                });
+            }
+
+            // --- Fade-in on Scroll Animation ---
+            const faders = document.querySelectorAll('.fade-in');
+            const appearOptions = {
+                threshold: 0.2,
+                rootMargin: "0px 0px -50px 0px"
+            };
+            const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        appearOnScroll.unobserve(entry.target);
+                    }
+                });
+            }, appearOptions);
+
+            faders.forEach(fader => {
+                appearOnScroll.observe(fader);
+            });
+            
+            // --- Mobile Menu Logic (Simplified) ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+
+            const toggleMobileMenu = () => {
+                const isMenuOpen = !mobileMenu.classList.contains('pointer-events-none');
+                if (isMenuOpen) {
+                    // Close menu
+                    mobileMenu.classList.add('opacity-0');
+                    setTimeout(() => {
+                        mobileMenu.classList.add('pointer-events-none');
+                        document.body.style.overflow = 'auto';
+                    }, 300);
+                } else {
+                    // Open menu
+                    mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+                    document.body.style.overflow = 'hidden';
+                }
+            };
+
+            if (mobileMenuButton && mobileMenu) {
+                // Event Listeners
+                mobileMenuButton.addEventListener('click', toggleMobileMenu);
+
+                // Close menu when a link is clicked
+                mobileMenuLinks.forEach(link => {
+                    link.addEventListener('click', toggleMobileMenu);
+                });
+
+                // Close menu when clicking on the overlay background
+                mobileMenu.addEventListener('click', (event) => {
+                    if (event.target === mobileMenu) {
+                        toggleMobileMenu();
+                    }
+                });
+
+                // Close menu on escape key press for accessibility
+                window.addEventListener('keydown', (e) => {
+                    const isMenuOpen = !mobileMenu.classList.contains('pointer-events-none');
+                    if (e.key === 'Escape' && isMenuOpen) {
+                        toggleMobileMenu();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+

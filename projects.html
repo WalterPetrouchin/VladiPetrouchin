@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects Showcase | Vladi Petrouchin | GM Application for Mint</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Swiper.js Carousel CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- Custom CSS for styling and animations -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+            color: #0f172a; /* slate-900 */
+        }
+        .section-compact {
+            min-height: auto;
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        /* Mobile Menu Transition */
+        #mobile-menu {
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        /* Swiper Carousel Styles */
+        .swiper-container-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 1200px; /* Increase max-width for fanned effect */
+            margin: auto;
+            padding: 2rem 0;
+        }
+        .swiper {
+            width: 100%;
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+        .swiper-slide {
+            background-position: center;
+            background-size: cover;
+            width: 500px; /* Width of the central slide */
+            height: 350px; /* Height of the central slide */
+            background-color: #e2e8f0; /* slate-200 */
+            border-radius: 0.75rem; /* rounded-xl */
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+            border: 1px solid #cbd5e1; /* slate-300 */
+        }
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Style for the "fanned" side images */
+        .swiper-slide:not(.swiper-slide-active) {
+            opacity: 0.7;
+        }
+        
+        /* Navigation Arrows */
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: #0d9488; /* teal-600 */
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 9999px;
+            width: 3.5rem;
+            height: 3.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+            transition: background-color 0.2s ease;
+        }
+        .swiper-button-next:hover,
+        .swiper-button-prev:hover {
+            background-color: white;
+        }
+        .swiper-button-next:after,
+        .swiper-button-prev:after {
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+
+        /* Description Box */
+        .project-description {
+            max-width: 700px;
+            margin: 2rem auto 0 auto;
+            padding: 1.5rem 2rem;
+            background-color: #ffffff;
+            border-radius: 0.75rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+            /* Set a min-height to prevent layout jank */
+            min-height: 120px; 
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation Header -->
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-effect shadow-lg">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="text-xl font-bold tracking-wider text-slate-800">VLADI PETROUCHIN</a>
+            
+            <!-- UPDATED: Desktop Navigation with Projects -->
+            <nav class="hidden lg:flex items-center space-x-6 text-sm font-medium text-slate-600">
+                <a href="/" class="hover:text-teal-600 transition-colors">Home</a>
+                <a href="resume.html" class="hover:text-teal-600 transition-colors">Resume</a>
+                <!-- This is the new active page -->
+                <a href="projects.html" class="text-teal-600 font-semibold transition-colors">Projects</a>
+                <a href="fit.html" class="hover:text-teal-600 transition-colors">Leadership & Fit</a>
+                <a href="goals.html" class="hover:text-teal-600 transition-colors">90-Day Plan</a>
+                <a href="thankyou.html" class="hover:text-teal-600 transition-colors">Thank You</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <div class="lg:hidden">
+                <button id="mobile-menu-button" class="text-slate-800 focus:outline-none z-50">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- UPDATED: Mobile Menu Overlay with Projects -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-white/95 backdrop-blur-lg flex flex-col items-center justify-center space-y-6 opacity-0 pointer-events-none lg:hidden">
+        <a href="/" class="text-2xl font-semibold text-slate-800">Home</a>
+        <a href="resume.html" class="text-2xl font-semibold text-slate-800">Resume</a>
+        <!-- This is the new active page -->
+        <a href="projects.html" class="text-2xl font-semibold text-teal-600">Projects</a>
+        <a href="fit.html" class="text-2xl font-semibold text-slate-800">Leadership & Fit</a>
+        <a href="goals.html" class="text-2xl font-semibold text-slate-800">90-Day Plan</a>
+        <a href="thankyou.html" class="text-2xl font-semibold text-slate-800">Thank You</a>
+    </div>
+
+
+    <!-- Main Content Section -->
+    <main class="pt-32">
+        <!-- Intro Section -->
+        <section id="intro" class="container mx-auto px-6 text-center">
+            <div class="max-w-3xl mx-auto">
+                <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-snug">Project Showcase</h1>
+                <p class="mt-4 text-lg text-slate-600">
+                   Here is a selection of the high-end, custom projects I have managed, from initial concept and international procurement to final turnkey delivery.
+                </p>
+            </div>
+        </section>
+        
+        <!-- Carousel Section -->
+        <section id="carousel-section" class="container mx-auto px-6 pt-16 pb-16">
+            <div class="swiper-container-wrapper">
+                <!-- Swiper -->
+                <div class="swiper">
+                    <div id="swiper-wrapper-dynamic" class="swiper-wrapper">
+                        <!-- Slides will be injected here by JavaScript -->
+                    </div>
+                </div>
+                <!-- Add Arrows -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+
+            <!-- Description Box -->
+            <div class="project-description">
+                <h3 id="project-location" class="text-xl font-bold text-slate-800 mb-2"></h3>
+                <p id="project-description" class="text-base text-slate-600"></p>
+            </div>
+        </section>
+
+        <!-- Section: Next Page -->
+        <section id="next-page" class="section-compact bg-white border-t border-slate-200">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-2xl font-bold text-slate-800 leading-snug">How my leadership aligns with your values...</h2>
+                <p class="mt-2 text-slate-600 max-w-2xl mx-auto">The next page details my cultural fit and "people-first" leadership philosophy.</p>
+                <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="fit.html" class="w-full sm:w-auto flex items-center justify-center gap-x-3 bg-teal-600 text-white font-semibold py-3 px-8 rounded-lg hover:bg-teal-700 transition-colors text-lg shadow-md hover:shadow-lg transform hover:-translate-y-1">
+                        View Leadership & Fit
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-100 border-t border-slate-200">
+        <div class="container mx-auto px-6 py-8 text-center text-slate-500">
+            <p class="font-semibold text-slate-700">Vladi Petrouchin</p>
+            <p class="text-sm">
+                <a href="mailto:vladipetrouchin@gmail.com" class="hover:text-teal-600 transition-colors">vladipetrouchin@gmail.com</a> | 310-390-1939
+            </p>
+        </div>
+    </footer>
+
+    <!-- Swiper.js JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Carousel Initialization Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- UPDATED Project Data ---
+            const projectData = [
+                { 
+                    img: "https://res.cloudinary.com/dq7glunwv/image/upload/v1762145892/Picture_4_ssk7cj.jpg", 
+                    location: "Pacific Palisades, CA", 
+                    description: "This expansive estate demonstrates full-cycle project management, from initial land acquisition to final turnkey delivery for a high-profile client." 
+                },
+                { 
+                    img: "https://res.cloudinary.com/dq7glunwv/image/upload/v1762145893/Picture_10_rttbun.jpg", 
+                    location: "Brentwood, CA", 
+                    description: "A modern masterpiece where operational excellence was key to merging complex architectural geometry with exacting aesthetic standards." 
+                },
+                { 
+                    img: "https://res.cloudinary.com/dq7glunwv/image/upload/v1762145893/Picture_5_jatj2c.jpg", 
+                    location: "Malibu, CA", 
+                    description: "This coastal home required creative solutions for site logistics and sourcing specialized materials to ensure generational quality against the elements." 
+                },
+                { 
+                    img: "https://res.cloudinary.com/dq7glunwv/image/upload/v1762145893/Picture_1_aq1omu.jpg", 
+                    location: "Beverly Hills, CA", 
+                    description: "Managed a 100+ person team of artisans and specialized subcontractors to deliver this architecturally significant home with complete integrity." 
+                },
+                { 
+                    img: "https://res.cloudinary.com/dq7glunwv/image/upload/v1762145892/Picture_2_qjt7jr.jpg", 
+                    location: "Brentwood, CA", 
+                    description: "A testament to pride in workmanship, this project was completed on time and exceeded client quality expectations." 
+                },
+                { 
+                    img: "https://res.cloudinary.com/dq7glunwv/image/upload/v1762145893/Picture_8_hjbxn8.jpg", 
+                    location: "Washington State", 
+                    description: "This 200 square foot custom build was built in our warehouse and delivered, turn-key ready, to the client site." 
+                },
+                { 
+                    img: "https://res.cloudinary.com/dq7glunwv/image/upload/v1762145893/Picture_12_ndmrj3.jpg", 
+                    location: "Pacific Palisades, CA", 
+                    description: "A showcase of managing $30M+ budgets, this project demanded transparent reporting and seamless collaboration with world-class architects." 
+                },
+                { 
+                    img: "https://res.cloudinary.com/dq7glunwv/image/upload/v1762145893/Picture_11_wgxi4a.jpg", 
+                    location: "Brentwood, CA", 
+                    description: "This build required innovative problem-solving to overcome structural challenges, resulting in a home that is both beautiful and built to last." 
+                },
+                { 
+                    img: "https://res.cloudinary.com/dq7glunwv/image/upload/v1762145893/Picture_14_ltfdei.jpg", 
+                    location: "Malibu, CA", 
+                    description: "Oversaw the entire regulatory lifecycle for this property, including complex permitting, zoning, and milestone inspections to ensure full compliance." 
+                },
+                { 
+                    img: "https://res.cloudinary.com/dq7glunwv/image/upload/v1762145897/Project_19_lset6b.jpg", 
+                    location: "Pacific Palisades, CA", 
+                    description: "This home embodies the principle of lasting value, using only premium materials and construction techniques for a truly bespoke result." 
+                },
+                { 
+                    img: "https://res.cloudinary.com/dq7glunwv/image/upload/v1762146849/Picture_9_ott5mj.jpg", 
+                    location: "Beverly Hills, CA", 
+                    description: "This project highlights my role as a trusted advisor, translating a client's visionary concept into a tangible, high-craftsmanship reality." 
+                },
+                { 
+                    img: "https://res.cloudinary.com/dq7glunwv/image/upload/v1762145897/Project_18_shf08v.jpg", 
+                    location: "Santa Monica, CA", 
+                    description: "A high-end build focused on artisan details, requiring meticulous coordination of specialized trades to achieve a flawless finish." 
+                },
+                { 
+                    img: "https://res.cloudinary.com/dq7glunwv/image/upload/v1762145894/Picture_15_pr2bbz.jpg", 
+                    location: "Palm Springs, CA", 
+                    description: "A desert contemporary home where I ensured strict adherence to all building codes and safety standards, delivering peace of mind to the client." 
+                },
+                { 
+                    img: "https://res.cloudinary.com/dq7glunwv/image/upload/v1762145895/Picture_16_ijvplq.jpg", 
+                    location: "Malibu, CA", 
+                    description: "This project demonstrates end-to-end operational control, from managing the elite client's expectations to directing all on-site production." 
+                }
+            ];
+
+            // --- Populate Swiper Slides ---
+            const swiperWrapper = document.getElementById('swiper-wrapper-dynamic');
+            projectData.forEach(project => {
+                const slide = document.createElement('div');
+                slide.classList.add('swiper-slide');
+                slide.innerHTML = `<img src="${project.img}" alt="Project at ${project.location}" onerror="this.onerror=null; this.src='https://placehold.co/500x350/e2e8f0/475569?text=Image+Not+Found';" />`;
+                swiperWrapper.appendChild(slide);
+            });
+
+            // --- Initialize Swiper ---
+            const swiper = new Swiper('.swiper', {
+                effect: 'coverflow',
+                grabCursor: true,
+                centeredSlides: true,
+                slidesPerView: 'auto', // Shows partial slides on the sides
+                loop: true, // Loops the 14 images
+                coverflowEffect: {
+                    rotate: 30,       // Angle of the side slides
+                    stretch: 0,
+                    depth: 100,       // Z-depth of the side slides
+                    modifier: 1,      // Effect multiplier
+                    slideShadows: true, // Adds shadows to side slides
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            });
+
+            // --- Sync Description Box ---
+            const locationEl = document.getElementById('project-location');
+            const descriptionEl = document.getElementById('project-description');
+
+            // Function to update text
+            function updateDescription(index) {
+                // Fade out text
+                locationEl.style.opacity = 0;
+                descriptionEl.style.opacity = 0;
+
+                setTimeout(() => {
+                    // Update text
+                    const activeProject = projectData[index];
+                    locationEl.textContent = activeProject.location;
+                    descriptionEl.textContent = activeProject.description;
+                    
+                    // Fade in text
+                    locationEl.style.opacity = 1;
+                    descriptionEl.style.opacity = 1;
+                }, 150); // Small delay to allow fade out
+            }
+
+            // Initial load
+            updateDescription(swiper.realIndex);
+
+            // Update on slide change
+            swiper.on('slideChange', () => {
+                updateDescription(swiper.realIndex);
+            });
+
+            // --- Mobile Menu Logic ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+
+            const toggleMobileMenu = () => {
+                const isMenuOpen = !mobileMenu.classList.contains('pointer-events-none');
+                if (isMenuOpen) {
+                    mobileMenu.classList.add('opacity-0');
+                    setTimeout(() => {
+                        mobileMenu.classList.add('pointer-events-none');
+                        document.body.style.overflow = 'auto';
+                    }, 300);
+                } else {
+                    mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+                    document.body.style.overflow = 'hidden';
+                }
+            };
+
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', toggleMobileMenu);
+                mobileMenuLinks.forEach(link => link.addEventListener('click', toggleMobileMenu));
+                mobileMenu.addEventListener('click', (event) => {
+                    if (event.target === mobileMenu) toggleMobileMenu();
+                });
+                window.addEventListener('keydown', (e) => {
+                    const isMenuOpen = !mobileMenu.classList.contains('pointer-events-none');
+                    if (e.key === 'Escape' && isMenuOpen) toggleMobileMenu();
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+

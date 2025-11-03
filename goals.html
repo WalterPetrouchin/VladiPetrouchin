@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- UPDATED: Title -->
+    <title>90-Day Plan | Vladi Petrouchin | GM Application for Mint</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+            color: #0f172a; /* slate-900 */
+        }
+        .section-compact {
+            min-height: auto;
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        /* Mobile Menu Transition */
+        #mobile-menu {
+            transition: opacity 0.3s ease-in-out;
+        }
+        /* Goal card hover effect */
+        .goal-card {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .goal-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+        }
+        /* Fix for 'y' cutoff */
+        .leading-snug {
+            line-height: 1.375;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-effect shadow-lg">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- UPDATED: Vladi's name -->
+            <a href="/" class="text-xl font-bold tracking-wider text-slate-800">VLADI PETROUCHIN</a>
+            
+             <!-- UPDATED: Navigation for GM role -->
+            <nav class="hidden lg:flex items-center space-x-6 text-sm font-medium text-slate-600">
+                <a href="/" class="hover:text-teal-600 transition-colors">Home</a>
+                <a href="resume.html" class="hover:text-teal-600 transition-colors">Resume</a>
+                <a href="projects.html" class="hover:text-teal-600 transition-colors">Projects</a>
+                <a href="fit.html" class="hover:text-teal-600 transition-colors">Leadership & Fit</a>
+                <a href="goals.html" class="text-teal-600 font-semibold transition-colors">90-Day Plan</a>
+                <a href="thankyou.html" class="hover:text-teal-600 transition-colors">Thank You</a>
+            </nav>
+
+            <div class="lg:hidden">
+                <button id="mobile-menu-button" class="text-slate-800 focus:outline-none z-50">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+     <!-- UPDATED: Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-white/95 backdrop-blur-lg flex flex-col items-center justify-center space-y-6 opacity-0 pointer-events-none lg:hidden">
+        <a href="/" class="text-2xl font-semibold text-slate-800">Home</a>
+        <a href="resume.html" class="text-2xl font-semibold text-slate-800">Resume</a>
+        <a href="projects.html" class="text-2xl font-semibold text-slate-800">Projects</a>
+        <a href="fit.html" class="text-2xl font-semibold text-slate-800">Leadership & Fit</a>
+        <a href="goals.html" class="text-2xl font-semibold text-teal-600">90-Day Plan</a>
+        <a href="thankyou.html" class="text-2xl font-semibold text-slate-800">Thank You</a>
+    </div>
+
+
+    <main class="pt-32">
+        <!-- UPDATED: Intro text for GM Role -->
+        <section id="intro" class="container mx-auto px-6 text-center">
+            <div class="max-w-3xl mx-auto">
+                <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-snug">My Goals & 90-Day Plan</h1>
+                <p class="mt-4 text-lg text-slate-600">
+                   I am a "hands-on" leader ready to build. My plan is to drive operational excellence and cultivate a "people-first" culture that aligns with the values of Mint and Westbow. Here is my proactive plan for the first 90 days.
+                </p>
+            </div>
+        </section>
+        
+        <!-- UPDATED: 90-Day Plan for GM Role -->
+        <section id="short-term-goals" class="container mx-auto px-6 pt-24 pb-16">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 leading-snug">My First 90 Days: Driving Operational Excellence</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-slate-600">Assuming I earn the role, here is my plan to align teams, optimize production, and foster a culture of continuous improvement.</p>
+                </div>
+                <div class="grid grid-cols-1 gap-8 text-left">
+                    <!-- 30 Days -->
+                    <div class="goal-card bg-white p-8 rounded-xl shadow-lg border border-slate-200">
+                        <div class="text-teal-600 font-bold text-lg text-center">First 30 Days</div>
+                        <h3 class="text-2xl font-semibold mt-2 text-slate-800 text-center">Listen, Learn & Align</h3>
+                        <ul class="text-slate-600 mt-6 space-y-4 list-disc list-inside">
+                            <li><strong>Immerse in Operations:</strong> Embed with the leads of Sales, Drafting, Marketing, Production, Procurement, and Quality Control to understand current workflows, challenges, and hand-off points.</li>
+                            <li><strong>Build Team Relationships:</strong> Meet 1-on-1 with all department heads and key team members. My goal is to listen to their insights, understand their perspectives, and build trust.</li>
+                            <li><strong>Understand the Values:</strong> Deep-dive with leadership (reporting to the Director of Operations) to align on the core Westbow values—"work smart," "build lasting value," "act with integrity," and "care"—and how they translate to the production floor.</li>
+                            <li><strong>Map the Value Stream:</strong> Create a high-level map of the entire process from "order received" to "home delivered" to identify initial, obvious bottlenecks or gaps.</li>
+                        </ul>
+                    </div>
+                     <!-- 60 Days -->
+                    <div class="goal-card bg-white p-8 rounded-xl shadow-lg border border-slate-200">
+                        <div class="text-teal-600 font-bold text-lg text-center">First 60 Days</div>
+                        <h3 class="text-2xl font-semibold mt-2 text-slate-800 text-center">Analyze & Strategize</h3>
+                        <ul class="text-slate-600 mt-6 space-y-4 list-disc list-inside">
+                            <li><strong>Data-Driven Deep Dive:</strong> Analyze all available data on production schedules, quality control reports, material costs, and labor efficiency. Establish baseline KPIs to measure future improvements.</li>
+                            <li><strong>Identify "Quick Wins":</strong> Target 1-2 key areas for immediate "continuous improvement" that will reduce friction for the team and demonstrate a "work smart" philosophy.</li>
+                            <li><strong>Develop Initial Strategic Plan:</strong> Draft a 6-month operational plan focused on optimizing resource allocation, improving cross-functional communication, and enhancing quality assurance without sacrificing the "hand-built" standard.</li>
+                            <li><strong>Present Findings:</strong> Deliver a comprehensive "State of Operations" report to senior leadership, outlining key findings, opportunities, and the proposed 6-month plan.</li>
+                        </ul>
+                    </div>
+                    <!-- 90 Days -->
+                    <div class="goal-card bg-white p-8 rounded-xl shadow-lg border border-slate-200">
+                        <div class="text-teal-600 font-bold text-lg text-center">First 90 Days</div>
+                        <h3 class="text-2xl font-semibold mt-2 text-slate-800 text-center">Execute & Foster Culture</h3>
+                        <ul class="text-slate-600 mt-6 space-y-4 list-disc list-inside">
+                            <li><strong>Implement "Quick Wins":</strong> Execute the 1-2 process improvements identified in the first 60 days, clearly communicating the "why" to the entire team and measuring the immediate impact.</li>
+                            <li><strong>Establish Rhythms:</strong> Implement a regular cadence of operational meetings (e.g., weekly production planning, monthly cross-department reviews) to foster accountability, collaboration, and transparency.</li>
+                            <li><strong>Empower the Team:</strong> Begin formalizing processes for "people development." Identify high-potential team members and create opportunities for them to grow.</li>
+                            <li><strong>Refine & Report:</strong> Refine the 6-month operational plan based on initial execution and feedback. Present a clear 90-Day Review to leadership, highlighting progress, metrics, and the roadmap ahead.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- UPDATED: Long Term Goals for GM Role -->
+        <section id="long-term-goals" class="bg-white border-y border-slate-200">
+            <div class="container mx-auto px-6 py-24">
+                <div class="max-w-3xl mx-auto text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 leading-snug">Long Term Aspirations</h2>
+                    <p class="mt-4 text-slate-600">Beyond 90 days, my goal is to build a lasting, scalable operation that serves as a pillar of the Westbow Group.</p>
+                    <div class="mt-8 text-left space-y-6 text-slate-600 bg-slate-50 p-8 rounded-xl border border-slate-200">
+                        <p><strong>Build a World-Class Operation:</strong> My primary goal is to build a scalable, efficient, and data-driven manufacturing operation that is renowned for its quality and "integrity."</class>
+                        <p><strong>Preserve the Craft:</strong> Ensure that as we scale, we always protect the "hand-built" craftsmanship and "true integrity" that defines the Mint brand. The goal is to "work smart" to make quality *more* consistent, not sacrifice it for speed.</p>
+                        <p><strong>Be a "People-First" Leader:</strong> Uphold the Westbow value to "care" by actively developing the next generation of leaders within Mint. I aim to build a "high-performing team" where people feel valued, empowered, and have space to grow.</p>
+                        <p><strong>Drive Lasting Value:</strong> Grow with the Westbow Group, contributing to its long-term vision of "building lasting value" and creating meaningful, sustainable communities through operational excellence.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- UPDATED: Learning Goals for GM Role -->
+        <section id="learning-goals" class="py-24 bg-slate-50">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-16">
+                        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 leading-snug">Immediate Learning & Growth Areas</h2>
+                        <p class="mt-4 max-w-2xl mx-auto text-slate-600">As a leader, I am always learning. These are areas I'm excited to dive into.</p>
+                    </div>
+                    <div class="max-w-2xl mx-auto grid md:grid-cols-2 gap-8 text-center">
+                        <!-- Goal 1 -->
+                        <div class="goal-card bg-white p-8 rounded-xl shadow-lg border border-slate-200 flex flex-col items-center">
+                            <div class="flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold mt-4 text-slate-800">Modular Manufacturing Innovation</h3>
+                            <p class="text-slate-600 mt-2">Master the specific technologies, materials, and compliance standards (CSA, RVIA) unique to the modular and tiny home industry.</p>
+                        </div>
+                        <!-- Goal 2 -->
+                        <div class="goal-card bg-white p-8 rounded-xl shadow-lg border border-slate-200 flex flex-col items-center">
+                             <div class="flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                   <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                                 </svg>                                
+                            </div>
+                            <h3 class="text-xl font-semibold mt-4 text-slate-800">Westbow Group Synergy</h3>
+                            <p class="text-slate-600 mt-2">Learn the strengths of all sister companies (Westbow Capital, Prokey, etc.) to identify opportunities for internal collaboration and efficiency.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- UPDATED: Next Page Link -->
+        <section id="next-page" class="section-compact bg-white border-t border-slate-200">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-2xl font-bold text-slate-800 leading-snug">Ready for the next step?</h2>
+                <p class="mt-2 text-slate-600">I'm ready to discuss how I can help Mint and Westbow build for the future.</p>
+                <div class="mt-8">
+                    <a href="thankyou.html" class="inline-flex items-center justify-center gap-x-3 bg-teal-600 text-white font-semibold py-3 px-8 rounded-lg hover:bg-teal-700 transition-colors text-lg shadow-md hover:shadow-lg transform hover:-translate-y-1">
+                        Contact Me
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-slate-100 border-t border-slate-200">
+        <div class="container mx-auto px-6 py-8 text-center text-slate-500">
+            <!-- UPDATED: Vladi's info -->
+            <p class="font-semibold text-slate-700">Vladi Petrouchin</p>
+            <p class="text-sm">
+                <a href="mailto:vladipetrouchin@gmail.com" class="hover:text-teal-600 transition-colors">vladipetrouchin@gmail.com</a> | 310-390-1939
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- Mobile Menu Logic ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+
+            const toggleMobileMenu = () => {
+                const isMenuOpen = !mobileMenu.classList.contains('pointer-events-none');
+                if (isMenuOpen) {
+                    mobileMenu.classList.add('opacity-0');
+                    setTimeout(() => {
+                        mobileMenu.classList.add('pointer-events-none');
+                        document.body.style.overflow = 'auto';
+                    }, 300);
+                } else {
+                    mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+                    document.body.style.overflow = 'hidden';
+                }
+            };
+
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', toggleMobileMenu);
+                mobileMenuLinks.forEach(link => link.addEventListener('click', toggleMobileMenu));
+                mobileMenu.addEventListener('click', (event) => {
+                    if (event.target === mobileMenu) toggleMobileMenu();
+                });
+                window.addEventListener('keydown', (e) => {
+                    const isMenuOpen = !mobileMenu.classList.contains('pointer-events-none');
+                    if (e.key === 'Escape' && isMenuOpen) toggleMobileMenu();
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- UPDATED: Title with Vladi's name -->
+    <title>Resume | Vladi Petrouchin | GM Application for Mint</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS for styling and animations -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+            color: #0f172a; /* slate-900 */
+        }
+        .section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 2rem;
+        }
+        /* New class for more compact sections */
+        .section-compact {
+            min-height: auto;
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        /* UPDATED: highlight-text class to use Mint's green/teal */
+        .highlight-text {
+            /* Using a teal gradient that matches Mint's branding */
+            background: linear-gradient(120deg, #14b8a6, #0d9488, #0f766e, #14b8a6);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient-move 8s ease-in-out infinite;
+        }
+        
+        @keyframes gradient-move {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        #mobile-menu {
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        /* Styling for the on-page resume */
+        .resume-content {
+            color: #334155; /* slate-700 */
+        }
+        .resume-content h2 {
+            font-size: 1.125rem; /* text-lg */
+            font-weight: 700; /* font-bold */
+            color: #0f766e; /* teal-700 */
+            text-transform: uppercase;
+            letter-spacing: 0.05em; /* tracking-wide */
+            border-bottom: 2px solid #ccfbf1; /* teal-100 */
+            padding-bottom: 0.5rem; /* pb-2 */
+            margin-top: 2rem; /* mt-8 */
+            margin-bottom: 1rem; /* mb-4 */
+        }
+        .resume-content h3 {
+            font-size: 1.25rem; /* text-xl */
+            font-weight: 600; /* font-semibold */
+            color: #1e293b; /* slate-800 */
+        }
+        .resume-content h4 {
+            font-size: 1rem; /* text-base */
+            font-weight: 500; /* font-medium */
+            color: #475569; /* slate-600 */
+            margin-bottom: 0.25rem; /* mb-1 */
+        }
+        .resume-content .date-location {
+            font-size: 0.875rem; /* text-sm */
+            font-style: italic;
+            color: #64748b; /* slate-500 */
+            margin-bottom: 1rem; /* mb-4 */
+        }
+        .resume-content .summary {
+            font-size: 1.125rem; /* text-lg */
+            font-weight: 400;
+            line-height: 1.75; /* leading-7 */
+            color: #334155; /* slate-700 */
+            border-left: 4px solid #14b8a6; /* teal-500 */
+            padding-left: 1.5rem; /* pl-6 */
+            margin-bottom: 2rem; /* mb-8 */
+        }
+        .resume-content ul {
+            list-style-type: disc;
+            padding-left: 1.5rem; /* pl-6 */
+            space-y: 0.75rem; /* space-y-3 */
+            line-height: 1.75;
+        }
+        .resume-content .experience-block {
+            margin-bottom: 2rem; /* mb-8 */
+        }
+        /* Fix for 'y' cutoff */
+        .leading-snug {
+            line-height: 1.375;
+        }
+
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation Header -->
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-effect shadow-lg">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- UPDATED: Vladi's name -->
+            <a href="/" class="text-xl font-bold tracking-wider text-slate-800">VLADI PETROUCHIN</a>
+            
+            <!-- UPDATED: Desktop Navigation for GM role -->
+            <nav class="hidden lg:flex items-center space-x-6 text-sm font-medium text-slate-600">
+                <a href="/" class="hover:text-teal-600 transition-colors">Home</a>
+                <!-- Set Resume link as active -->
+                <a href="resume.html" class="text-teal-600 font-semibold transition-colors">Resume</a>
+                <a href="projects.html" class="hover:text-teal-600 transition-colors">Projects</a>
+                <a href="fit.html" class="hover:text-teal-600 transition-colors">Leadership & Fit</a>
+                <a href="goals.html" class="hover:text-teal-600 transition-colors">90-Day Plan</a>
+                <a href="thankyou.html" class="hover:text-teal-600 transition-colors">Thank You</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <div class="lg:hidden">
+                <button id="mobile-menu-button" class="text-slate-800 focus:outline-none z-50">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- UPDATED: Mobile Menu Overlay for GM role -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-white/95 backdrop-blur-lg flex flex-col items-center justify-center space-y-6 opacity-0 pointer-events-none lg:hidden">
+        <a href="/" class="text-2xl font-semibold text-slate-800">Home</a>
+        <!-- Set Resume link as active -->
+        <a href="resume.html" class="text-2xl font-semibold text-teal-600">Resume</a>
+        <a href="projects.html" class="text-2xl font-semibold text-slate-800">Projects</a>
+        <a href="fit.html" class="text-2xl font-semibold text-slate-800">Leadership & Fit</a>
+        <a href="goals.html" class="text-2xl font-semibold text-slate-800">90-Day Plan</a>
+        <a href="thankyou.html" class="text-2xl font-semibold text-slate-800">Thank You</a>
+    </div>
+
+
+    <!-- Main Content Section -->
+    <main class="pt-32">
+
+        <!-- Section 1: Page Header -->
+        <section id="resume-header" class="section-compact text-center">
+            <div class="container mx-auto px-6 fade-in">
+                <div class="max-w-3xl mx-auto">
+                    <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-snug">My Resume</h1>
+                    <p class="mt-4 text-lg text-slate-600">
+                        My 30+ years of experience in high-end manufacturing and custom construction. You can also download a PDF version.
+                    </p>
+
+                    <div class="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <!-- UPDATED: Resume link and button color -->
+                        <a href="https://drive.google.com/file/d/1NXRafGNPv2rMqQ3UQufCsW4tDp3LAt_h/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto flex items-center justify-center gap-x-3 bg-teal-600 text-white font-semibold py-3 px-8 rounded-lg hover:bg-teal-700 transition-colors text-lg shadow-md hover:shadow-lg transform hover:-translate-y-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                            </svg>
+                            Download PDF Resume
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: On-Page Resume Content -->
+        <section id="resume-content" class="section-compact bg-white border-y border-slate-200">
+            <div class="container mx-auto px-6 fade-in">
+                
+                <!-- Link wrapper for the resume content box -->
+                <a href="https://drive.google.com/file/d/1NXRafGNPv2rMqQ3UQufCsW4tDp3LAt_h/view?usp=sharing" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="block max-w-4xl mx-auto group">
+                    
+                    <!-- The resume content box -->
+                    <div class="relative bg-white p-8 md:p-12 rounded-xl shadow-2xl shadow-slate-900/10 border border-slate-200 resume-content
+                                transition-all duration-300 ease-in-out 
+                                group-hover:shadow-xl group-hover:shadow-teal-200/50 group-hover:border-teal-300 group-hover:scale-[1.01]">
+                        
+                        <!-- Icon for opening in new tab -->
+                        <div class="absolute top-6 right-6 p-2 rounded-full bg-slate-50 border border-slate-200 
+                                    opacity-75 transition-all duration-300 ease-in-out
+                                    group-hover:bg-teal-50 group-hover:border-teal-200 group-hover:scale-110 group-hover:opacity-100">
+                            <svg class="w-5 h-5 text-teal-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                            </svg>
+                        </div>
+
+                        <!-- Header -->
+                        <div class="text-center border-b border-slate-200 pb-6 mb-6">
+                            <h1 class="text-4xl font-bold text-slate-900">Vladi Petrouchin</h1>
+                            <p class="text-lg text-slate-600 mt-2">
+                                Vancouver, BC | 310-390-1939 | vladipetrouchin@gmail.com
+                            </p>
+                        </div>
+
+                        <!-- Summary -->
+                        <div class="summary">
+                            <p>
+                                Strategic and hands-on executive with 30+ years of experience directing multimillion-dollar operations in high-end manufacturing and custom construction. Proven success scaling production, driving operational efficiency, and leading cross-functional teams across Sales, Design, Production, Procurement, and Quality Control to deliver premium, high-craftsmanship products.
+                            </p>
+                            <p class="mt-4">
+                                A people-first leader and strategic thinker with full P&L ownership, skilled in building scalable systems, developing teams, and cultivating cultures of continuous improvement, integrity, and accountability. Passionate about uniting craftsmanship and operational excellence to build lasting value — aligning perfectly with Westbow's mission to create meaningful, sustainable communities.
+                            </p>
+                        </div>
+
+                    <h2>Education</h2>
+                    <div class="experience-block">
+                        <h3>Bachelor of Science in Industrial and Civil Construction</h3>
+                        <h4>Saint Petersburg State University</h4>
+                        <p class="date-location">Saint Petersburg, Russia | 1983-1987</p>
+                    </div>
+
+                    <!-- Experience -->
+                    <h2>Experience</h2>
+                    
+                    <div class="experience-block">
+                        <h3>Director of Operations</h3>
+                        <h4>Barema</h4>
+                        <p class="date-location">Los Angeles, CA | 2004-2025</p>
+                        <ul>
+                            <li>Oversaw all day-to-day operations for custom home projects with budgets exceeding $30M, ensuring world-class craftsmanship and on-time delivery.</li>
+                            <li>Led and aligned 100+ team members across design, production, and procurement to execute high-profile builds for elite clientele, fostering a culture of accountability and pride in workmanship.</li>
+                            <li>Directed international procurement from 20+ countries, optimizing supply chain efficiency while maintaining quality and sustainability standards.</li>
+                            <li>Managed P&L performance, multi-million-dollar budgets, and cost controls to protect profitability without compromising design integrity.</li>
+                            <li>Served as the primary client liaison, overseeing the full customer journey from design to delivery with transparent reporting and high satisfaction outcomes.</li>
+                            <li>Ensured full compliance with regulatory and safety standards across all projects and jurisdictions.</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-block">
+                        <h3>Manufacturing & Operations Manager</h3>
+                        <h4>ICI Millwork</h4>
+                        <p class="date-location">Los Angeles, CA | 1999-2004</p>
+                        <ul>
+                            <li>Transformed production workflows, increasing on-time completion from 55% to 100% and accelerating timelines by 3 weeks (25% production time decrease).</li>
+                            <li>Directed a 20-person production team and implemented lean systems that increased productivity and reduced rework.</li>
+                            <li>Managed 100+ high-end millwork projects totaling over $5M annually, integrating AutoCAD and performance tracking for quality assurance.</li>
+                            <li>Oversaw the entire manufacturing lifecycle from quoting and procurement to final delivery, maintaining transparency with leadership.</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-block">
+                        <h3>General Manager, Residential Development</h3>
+                        <h4>Delkus Construction Company</h4>
+                        <p class="date-location">Toronto, Canada | 1992-1999</p>
+                        <ul>
+                            <li>Led development of a $25M residential community, managing construction of 120 single-family homes.</li>
+                            <li>Directed 200+ staff and contractors, coordinating all site operations, budgets, and timelines.</li>
+                            <li>Negotiated with 20+ suppliers to secure seven-figure material cost savings and accelerate project completion.</li>
+                            <li>Enhanced design efficiency through collaboration with architects, aligning with a "work smart" philosophy and lean principles.</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </a>
+            </div>
+        </section>
+        
+        <!-- Section: Next Page -->
+        <section id="next-page" class="section-compact bg-slate-50 border-t border-slate-200">
+            <div class="container mx-auto px-6 text-center">
+                <!-- UPDATED: Text for GM role -->
+                <h2 class="text-2xl font-bold text-slate-800 leading-snug">See the proof of my work.</h2>
+                <p class="mt-2 text-slate-600">The next page is a showcase of my managed projects.</p>
+                <div class="mt-8">
+                    <!-- UPDATED: Button color and link -->
+                    <a href="projects.html" class="inline-flex items-center justify-center gap-x-3 bg-teal-600 text-white font-semibold py-3 px-8 rounded-lg hover:bg-teal-700 transition-colors text-lg shadow-md hover:shadow-lg transform hover:-translate-y-1">
+                        View Project Showcase
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-100 border-t border-slate-200">
+        <div class="container mx-auto px-6 py-8 text-center text-slate-500">
+            <!-- UPDATED: Vladi's info -->
+            <p class="font-semibold text-slate-700">Vladi Petrouchin</p>
+            <p class="text-sm">
+                <a href="mailto:vladipetrouchin@gmail.com" class="hover:text-teal-600 transition-colors">vladipetrouchin@gmail.com</a> | 310-390-1939
+            </p>
+            <!-- UPDATED: Removed LinkedIn -->
+        </div>
+    </footer>
+
+    <!-- JavaScript for interactivity -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- Mobile Menu Logic ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+
+            const toggleMobileMenu = () => {
+                const isMenuOpen = !mobileMenu.classList.contains('pointer-events-none');
+                if (isMenuOpen) {
+                    // Close menu
+                    mobileMenu.classList.add('opacity-0');
+                    setTimeout(() => {
+                        mobileMenu.classList.add('pointer-events-none');
+                        document.body.style.overflow = 'auto';
+                    }, 300);
+                } else {
+                    // Open menu
+                    mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+                    document.body.style.overflow = 'hidden';
+                }
+            };
+
+            if (mobileMenuButton && mobileMenu) {
+                // Event Listeners
+                mobileMenuButton.addEventListener('click', toggleMobileMenu);
+
+                // Close menu when a link is clicked
+                mobileMenuLinks.forEach(link => {
+                    link.addEventListener('click', toggleMobileMenu);
+                });
+
+                // Close menu when clicking on the overlay background
+                mobileMenu.addEventListener('click', (event) => {
+                    if (event.target === mobileMenu) {
+                        toggleMobileMenu();
+                    }
+                });
+
+                // Close menu on escape key press for accessibility
+                window.addEventListener('keydown', (e) => {
+                    const isMenuOpen = !mobileMenu.classList.contains('pointer-events-none');
+                    if (e.key === 'Escape' && isMenuOpen) {
+                        toggleMobileMenu();
+                    }
+                });
+            }
+
+            // --- Header Scroll Effect ---
+            const header = document.getElementById('main-header');
+            if (header) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 50) {
+                        header.classList.add('glass-effect', 'shadow-lg');
+                    } else {
+                        header.classList.remove('glass-effect', 'shadow-lg');
+                    }
+                });
+            }
+
+            // --- Fade-in on Scroll Animation ---
+            const faders = document.querySelectorAll('.fade-in');
+            const appearOptions = {
+                threshold: 0.2,
+                rootMargin: "0px 0px -50px 0px"
+            };
+            const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        appearOnScroll.unobserve(entry.target);
+                    }
+                });
+            }, appearOptions);
+
+            faders.forEach(fader => {
+                appearOnScroll.observe(fader);
+            });
+            
+        });
+    </script>
+</body>
+</html>
+
