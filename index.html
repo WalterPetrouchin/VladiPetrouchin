@@ -80,15 +80,8 @@
             opacity: 1;
             transform: translateY(0);
         }
-        .memo-grid {
-            display: grid;
-            grid-template-columns: 100px 1fr;
-            gap: 0.5rem 1rem;
-        }
-        .memo-label {
-            font-weight: 600;
-            color: #64748b; /* slate-500 */
-        }
+        /* DELETED memo-grid and memo-label styles */
+
         /* Mobile Menu Transition */
         #mobile-menu {
             transition: opacity 0.3s ease-in-out;
@@ -118,6 +111,16 @@
         @keyframes countdown {
             from { width: 100%; }
             to { width: 0%; }
+        }
+        /* Fix for 'y' cutoff */
+        .leading-snug {
+            line-height: 1.375;
+        }
+        .leading-normal {
+            line-height: 1.5;
+        }
+        .leading-tight {
+            line-height: 1.25;
         }
     </style>
 </head>
@@ -151,13 +154,12 @@
             <!-- UPDATED: Vladi's name -->
             <a href="/" class="text-xl font-bold tracking-wider text-slate-800">VLADI PETROUCHIN</a>
             
-            <!-- UPDATED: Desktop Navigation for GM role -->
+            <!-- UPDATED: Desktop Navigation for GM role (90-Day Plan removed) -->
             <nav class="hidden lg:flex items-center space-x-6 text-sm font-medium text-slate-600">
                 <a href="/" class="text-teal-600 font-semibold transition-colors">Home</a>
                 <a href="resume.html" class="hover:text-teal-600 transition-colors">Resume</a>
                 <a href="projects.html" class="hover:text-teal-600 transition-colors">Projects</a>
                 <a href="fit.html" class="hover:text-teal-600 transition-colors">Leadership & Fit</a>
-                <a href="goals.html" class="hover:text-teal-600 transition-colors">90-Day Plan</a>
                 <a href="thankyou.html" class="hover:text-teal-600 transition-colors">Thank You</a>
             </nav>
 
@@ -171,13 +173,12 @@
             </div>
         </div>
     </header>
-    <!-- UPDATED: Mobile Menu Overlay for GM role -->
+    <!-- UPDATED: Mobile Menu Overlay for GM role (90-Day Plan removed) -->
     <div id="mobile-menu" class="fixed inset-0 z-40 bg-white/95 backdrop-blur-lg flex flex-col items-center justify-center space-y-6 opacity-0 pointer-events-none lg:hidden">
         <a href="/" class="text-2xl font-semibold text-teal-600">Home</a>
         <a href="resume.html" class="text-2xl font-semibold text-slate-800">Resume</a>
         <a href="projects.html" class="text-2xl font-semibold text-slate-800">Projects</a>
         <a href="fit.html" class="text-2xl font-semibold text-slate-800">Leadership & Fit</a>
-        <a href="goals.html" class="text-2xl font-semibold text-slate-800">90-Day Plan</a>
         <a href="thankyou.html" class="text-2xl font-semibold text-slate-800">Thank You</a>
     </div>
 
@@ -191,7 +192,7 @@
             <h1 class="font-extrabold tracking-tight text-slate-900">
                 <span class="block text-xl md:text-2xl lg:text-3xl font-medium text-slate-600 leading-normal">
                     An application for the 
-                    <a href="https://recruiting.ultipro.ca/WES5008WESCO/JobBoard/93791131-021b-4384-b764-1d035eefa84b/OpportunityDetail?opportunityId=47ba3dd7-3173-478c-8041-099638d267c6" target="_blank" rel="noopener noreferrer" class="font-semibold text-slate-800 hover:text-teal-600 transition-colors underline decoration-slate-300 hover:decoration-teal-600 underline-offset-4">
+                    <a href="https://recruiting.ultipro.ca/WES5008WESCO/JobBoard/93791131-021b-4384-b5ff-eaccf661d2cb/OpportunityDetail?opportunityId=47ba3dd7-3173-478c-8041-099638d267c6" target="_blank" rel="noopener noreferrer" class="font-semibold text-slate-800 hover:text-teal-600 transition-colors underline decoration-slate-300 hover:decoration-teal-600 underline-offset-4">
                         <strong class="font-semibold text-slate-800">General Manager, Modular Home Manufacturing</strong>
                     </a>
                     role at
@@ -202,7 +203,7 @@
             <p class="mt-8 text-sm text-slate-500">By Vladi Petrouchin</p>
         </div>
         <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10">
-             <a href="#video" class="flex flex-col items-center text-slate-500 hover:text-slate-900 transition-colors">
+             <a href="#introduction" class="flex flex-col items-center text-slate-500 hover:text-slate-900 transition-colors">
                 <span class="text-xs">Get to know me</span>
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mt-1 scroll-indicator" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -213,7 +214,9 @@
 
     <main>
         <!-- Section 2: Headshot Introduction -->
-        <section id="video" class="section section-compact bg-white">
+        <!-- This section now also serves as the end of the main content before the footer -->
+        <!-- UPDATED: id from 'video' to 'introduction' -->
+        <section id="introduction" class="section section-compact bg-white border-y border-slate-200">
             <div class="container mx-auto px-6 text-center fade-in">
                 <div class="mb-12">
                     <!-- UPDATED: Color to teal -->
@@ -228,66 +231,29 @@
                          class="h-64 w-64 rounded-full object-cover shadow-2xl shadow-slate-900/10 border-4 border-white ring-1 ring-slate-200">
                     
                     <!-- Text below image -->
+                    <!-- UPDATED: Softened language -->
                     <p class="mt-8 max-w-2xl mx-auto text-lg text-slate-600">
-                        Hello. I'm Vladi Petrouchin, a "hands-on" executive leader with over 30 years of experience scaling high-end manufacturing and custom construction operations. This site is a brief introduction to my leadership philosophy and my strategic plan for this role.
+                        Hello. I'm Vladi Petrouchin, a "hands-on" leader with a background spanning over 30 years in high-end manufacturing and custom construction operations. This site is a brief introduction to my experience and philosophy.
                     </p>
-                </div>
-            </div>
-        </section>
 
-        <!-- Section 3: The Memo -->
-        <section id="memo" class="section section-compact">
-            <div class="container mx-auto px-6 fade-in">
-                <div class="text-center mb-12">
-                    <!-- UPDATED: Color to teal -->
-                    <h2 class="text-sm font-bold uppercase tracking-widest text-teal-600">My Approach</h2>
-                    <p class="mt-3 text-3xl md:text-4xl font-bold text-slate-900 leading-snug">My First Deliverable To You</p>
-                    <!-- UPDATED: Memo text for GM role -->
-                    <p class="mt-4 max-w-2xl mx-auto text-slate-600">The job description says you're looking for a "hands-on leader" and "strategic thinker" to build a "culture of accountability, innovation and collaboration." A standard resume can't prove that. This site is my first deliverable to show you I am that leader.</p>
-                </div>
-                
-                <div class="block group">
-                    <div class="max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-xl shadow-2xl shadow-slate-900/10 border border-slate-200 transition-all duration-300">
-                        <!-- UPDATED: Memo content for GM role -->
-                        <div class="memo-grid items-center mb-6 text-sm md:text-base">
-                            <p class="memo-label">TO:</p><p class="text-slate-800">Mint Tiny House Co. & Westbow Group Leadership</p>
-                            <p class="memo-label">FROM:</p><p class="text-slate-800">Vladi Petrouchin</p>
-                            <p class="memo-label">DATE:</p><p id="memo-date" class="text-slate-800"></p>
-                            <p class="memo-label">SUBJECT:</p><p class="font-semibold text-slate-900">Application for GM: A "People-First" Operator Ready to Build</p>
-                        </div>
-                        <hr class="border-slate-200 my-8">
-                        <div class="prose prose-slate max-w-none text-slate-600 space-y-4">
-                            <p><strong>Why:</strong> The job description emphasizes the need for a "hands-on leader" with a "big-picture mindset" to scale a high-growth manufacturing operation. A standard resume is insufficient to demonstrate this. This custom website is my solution—it's my first deliverable, designed to show you *how* I think, lead, and execute.</p>
-                            <p><strong>What:</strong> My mission is to prove I am the leader who can scale your manufacturing operations *without* losing the "hand-built" craftsmanship and "true integrity" that defines the Mint brand. I don't just manage production; I build "people-first" operational *engines* that drive efficiency, quality, and a culture of "continuous improvement."</p>
-                            <p><strong>How:</strong> This multi-page site is my application-in-action. It's organized to show my strategic fit for this specific role. Here you will find:<br>
-                            • <strong>Resume:</strong> My 30+ years of experience in high-end manufacturing and custom construction.<br>
-                            • <strong>Projects:</strong> A showcase of the high-end, custom projects I have managed.<br>
-                            • <strong>Leadership & Fit:</strong> A detailed breakdown of my leadership philosophy and how it aligns with Westbow's core values ("work smart," "build lasting value," "care," and "act with integrity").<br>
-                            • <strong>90-Day Plan:</strong> A proactive plan to build on your foundation and drive results from day one.</p>
-                            <p><strong>Now:</strong> I invite you to explore this site. Each section is a testament to the quality and strategic mindset I will bring to Mint Tiny House Company. I am ready to build the team for the future and am excited to discuss this with you.</p>
-                            <p class="pt-4">Thank you for your time and consideration.</p>
-                        </div>
+                    <!-- ADDED: Button to Resume Page -->
+                    <div class="mt-12">
+                        <a href="resume.html" class="inline-flex items-center justify-center gap-x-3 bg-teal-600 text-white font-semibold py-3 px-8 rounded-lg hover:bg-teal-700 transition-colors text-lg shadow-md hover:shadow-lg transform hover:-translate-y-1">
+                            View My Resume
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </a>
                     </div>
+
                 </div>
             </div>
         </section>
 
-        <!-- Section 4: Next Page -->
-        <section id="next-page" class="section-compact bg-white border-t border-slate-200">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-2xl font-bold text-slate-800 leading-normal">My Experience</h2>
-                <p class="mt-2 text-slate-600">The next page details my 30+ year background in operations and manufacturing.</p>
-                <div class="mt-8">
-                    <!-- UPDATED: Button color to teal -->
-                    <a href="resume.html" class="inline-flex items-center justify-center gap-x-3 bg-teal-600 text-white font-semibold py-3 px-8 rounded-lg hover:bg-teal-700 transition-colors text-lg shadow-md hover:shadow-lg transform hover:-translate-y-1">
-                        View My Resume
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </section>
+        <!-- DELETED: Section 3: The Memo -->
+        
+        <!-- DELETED: Section 4: Next Page -->
+
     </main>
 
     <!-- Footer -->
@@ -296,7 +262,7 @@
             <!-- UPDATED: Vladi's info -->
             <p class="font-semibold text-slate-700">Vladi Petrouchin</p>
             <p class="text-sm">
-                <a href="mailto:vladipetrouchin@gmail.com" class="hover:text-teal-600 transition-colors">vladipetrouchin@gmail.com</a> | 310-980-1939
+                <a href="mailto:vladipetrouchin@gmail.com" class="hover:text-teal-600 transition-colors">vladipetrouchin@gmail.com</a> | 310-390-1939
             </p>
             <!-- UPDATED: Removed LinkedIn -->
         </div>
@@ -348,16 +314,8 @@
             }
 
 
-            // --- Set Memo Date ---
-            const memoDate = document.getElementById('memo-date');
-            if(memoDate) {
-                memoDate.textContent = new Date().toLocaleString('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                });
-            }
-
+            // --- DELETED: Set Memo Date Logic ---
+            
             // --- Header Scroll Effect ---
             const header = document.getElementById('main-header');
             if (header) {
@@ -438,6 +396,4 @@
     </script>
 </body>
 </html>
-
-
 

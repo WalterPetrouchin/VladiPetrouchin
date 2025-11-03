@@ -37,6 +37,10 @@
             opacity: 1;
             transform: translateY(0);
         }
+        /* Fix for 'y' cutoff */
+        .leading-snug {
+            line-height: 1.375;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -46,12 +50,13 @@
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <!-- UPDATED: Vladi's name -->
             <a href="/" class="text-xl font-bold tracking-wider text-slate-800">VLADI PETROUCHIN</a>
+             
+             <!-- UPDATED: Navigation (90-Day Plan removed) -->
              <nav class="hidden lg:flex items-center space-x-6 text-sm font-medium text-slate-600">
                 <a href="/" class="hover:text-teal-600 transition-colors">Home</a>
                 <a href="resume.html" class="hover:text-teal-600 transition-colors">Resume</a>
                 <a href="projects.html" class="hover:text-teal-600 transition-colors">Projects</a>
                 <a href="fit.html" class="hover:text-teal-600 transition-colors">Leadership & Fit</a>
-                <a href="goals.html" class="hover:text-teal-600 transition-colors">90-Day Plan</a>
                 <!-- Set Thank You link as active -->
                 <a href="thankyou.html" class="text-teal-600 font-semibold transition-colors">Thank You</a>
             </nav>
@@ -64,26 +69,28 @@
             </div>
         </div>
     </header>
-    <!-- UPDATED: Mobile Menu Overlay with Projects -->
+    
+    <!-- UPDATED: Mobile Menu Overlay (90-Day Plan removed) -->
     <div id="mobile-menu" class="fixed inset-0 z-40 bg-white/95 backdrop-blur-lg flex flex-col items-center justify-center space-y-6 opacity-0 pointer-events-none lg:hidden">
         <a href="/" class="text-2xl font-semibold text-slate-800">Home</a>
         <a href="resume.html" class="text-2xl font-semibold text-slate-800">Resume</a>
         <a href="projects.html" class="text-2xl font-semibold text-slate-800">Projects</a>
         <a href="fit.html" class="text-2xl font-semibold text-slate-800">Leadership & Fit</a>
-        <a href="goals.html" class="text-2xl font-semibold text-slate-800">90-Day Plan</a>
         <a href="thankyou.html" class="text-2xl font-semibold text-teal-600">Thank You</a>
     </div>
 
     <!-- Main Content Section -->
     <main class="pt-32 pb-16 min-h-screen flex items-center">
-        <section id="intro" class="container mx-auto px-6 text-center fade-in">
+        <section id="intro" class="container mx-auto px-6 text-center fade-in visible"> <!-- Added 'visible' to fade in on load -->
             <div class="max-w-3xl mx-auto">
                 <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-snug">Thank You & Next Steps</h1>
+                
+                <!-- UPDATED: Humble language -->
                 <p class="mt-4 text-lg text-slate-600">
-                    I sincerely appreciate you taking the time to review my application website for the General Manager role. I'm incredibly excited about Mint's "hand-built" quality and the Westbow Group's mission to "build lasting value."
+                    I sincerely appreciate you taking the time to review my application website. I'm very interested in Mint's "hand-built" quality and the Westbow Group's mission to "build lasting value."
                 </p>
                 <p class="mt-4 text-lg text-slate-600">
-                    I am confident I can lead your manufacturing operations, drive efficiency, and build a world-class team. I'm eager to discuss how my "people-first" leadership and "work smart" philosophy align with your goals.
+                    I hope my experience in operations and team leadership might be a good fit for your goals. I would be grateful for the opportunity to discuss this role further.
                 </p>
             </div>
         
@@ -101,7 +108,6 @@
                         Download PDF Resume
                     </a>
                 </div>
-                <!-- UPDATED: Removed the duplicate contact info block -->
             </div>
         </section>
     </main>
@@ -112,9 +118,8 @@
             <!-- UPDATED: Vladi's info -->
             <p class="font-semibold text-slate-700">Vladi Petrouchin</p>
             <p class="text-sm">
-                <a href="mailto:vladipetrouchin@gmail.com" class="hover:text-teal-600 transition-colors">vladipetrouchin@gmail.com</a> | 310-980-1939
-            </p>
-            <!-- UPDATED: Removed LinkedIn -->
+                <a href="mailto:vladipetrouchin@gmail.com" class="hover:text-teal-600 transition-colors">vladipetrouchin@gmail.com</a> | 310-390-1939
+            </ANNOYEDp>
         </div>
     </footer>
 
@@ -179,20 +184,26 @@
             }
 
              // --- Fade-in on Scroll Animation ---
-             const faders = document.querySelectorAll('.fade-in');
+             // Select all fade-in elements
+            const faders = document.querySelectorAll('.fade-in');
+            
+            // Set options for the observer
             const appearOptions = {
-                threshold: 0.2,
-                rootMargin: "0px 0px -50px 0px"
+                threshold: 0.2, // Trigger when 20% of the element is visible
+                rootMargin: "0px 0px -50px 0px" // Start loading 50px before it's in view
             };
+
+            // Create the observer
             const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        appearOnScroll.unobserve(entry.target);
+                        entry.target.classList.add('visible'); // Add 'visible' class
+                        appearOnScroll.unobserve(entry.target); // Stop observing
                     }
                 });
             }, appearOptions);
 
+            // Observe each fade-in element
             faders.forEach(fader => {
                 appearOnScroll.observe(fader);
             });
@@ -200,7 +211,4 @@
     </script>
 </body>
 </html>
-
-
-
 
