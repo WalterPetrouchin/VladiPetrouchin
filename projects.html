@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects Showcase | Vladi Petrouchin | GM Application for Mint</title>
+    <title>Projects & Ideas | Vladi Petrouchin | GM Application for Mint</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -86,6 +86,12 @@
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
             transition: background-color 0.2s ease;
         }
+        /* Positioning for multiple carousels */
+        .swiper-container-wrapper:nth-of-type(1) .swiper-button-next { --swiper-navigation-sides-offset: 10px; }
+        .swiper-container-wrapper:nth-of-type(1) .swiper-button-prev { --swiper-navigation-sides-offset: 10px; }
+        .swiper-container-wrapper:nth-of-type(2) .swiper-button-next { --swiper-navigation-sides-offset: 10px; }
+        .swiper-container-wrapper:nth-of-type(2) .swiper-button-prev { --swiper-navigation-sides-offset: 10px; }
+
         .swiper-button-next:hover,
         .swiper-button-prev:hover {
             background-color: white;
@@ -107,7 +113,12 @@
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
             /* Set a min-height to prevent layout jank */
             min-height: 120px; 
+            transition: opacity 0.15s ease-in-out;
         }
+        .project-description h3, .project-description p {
+            transition: opacity 0.15s ease-in-out;
+        }
+
         /* Fix for 'y' cutoff */
         .leading-snug {
             line-height: 1.375;
@@ -158,39 +169,69 @@
         <!-- Intro Section -->
         <section id="intro" class="container mx-auto px-6 text-center">
             <div class="max-w-3xl mx-auto">
-                <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-snug">Project Showcase</h1>
+                <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-snug">Projects & Ideas</h1>
                 <p class="mt-4 text-lg text-slate-600">
-                   Here is a selection of the high-end, custom projects I have been involved with, from initial concept and international procurement to final turnkey delivery.
+                   Below is a selection of high-end projects I have been involved with, followed by some innovative modular concepts I believe would be a great fit for Mint.
                 </p>
             </div>
         </section>
         
-        <!-- Carousel Section -->
-        <section id="carousel-section" class="container mx-auto px-6 pt-16 pb-16">
+        <!-- Carousel Section 1: Past Projects -->
+        <section id="carousel-section-projects" class="container mx-auto px-6 pt-16 pb-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-slate-800 leading-snug">Past Project Involvement</h2>
+                <p class="mt-2 text-slate-600 max-w-2xl mx-auto">A showcase of high-end, custom residential projects.</p>
+            </div>
             <div class="swiper-container-wrapper">
                 <!-- Swiper -->
-                <div class="swiper">
-                    <div id="swiper-wrapper-dynamic" class="swiper-wrapper">
+                <div class="swiper swiper-projects">
+                    <div id="swiper-wrapper-projects" class="swiper-wrapper">
                         <!-- Slides will be injected here by JavaScript -->
                     </div>
                 </div>
                 <!-- Add Arrows -->
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next swiper-button-next-projects"></div>
+                <div class="swiper-button-prev swiper-button-prev-projects"></div>
             </div>
 
             <!-- Description Box -->
-            <div class="project-description">
+            <div id="project-description-box" class="project-description">
                 <h3 id="project-location" class="text-xl font-bold text-slate-800 mb-2"></h3>
                 <p id="project-description" class="text-base text-slate-600"></p>
             </div>
         </section>
 
+        <!-- NEW: Carousel Section 2: ADU Concepts -->
+        <section id="carousel-section-adu" class="container mx-auto px-6 pt-16 pb-16 bg-white border-y border-slate-200">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-slate-800 leading-snug">Future-Forward Modular Concepts</h2>
+                <p class="mt-2 text-slate-600 max-w-2xl mx-auto">A few concepts for cost-effective, high-quality modular homes that could expand Mint's product line.</p>
+            </div>
+            <div class="swiper-container-wrapper">
+                <!-- Swiper -->
+                <div class="swiper swiper-adu">
+                    <div id="swiper-wrapper-adu" class="swiper-wrapper">
+                        <!-- Slides will be injected here by JavaScript -->
+                    </div>
+                </div>
+                <!-- Add Arrows -->
+                <div class="swiper-button-next swiper-button-next-adu"></div>
+                <div class="swiper-button-prev swiper-button-prev-adu"></div>
+            </div>
+
+            <!-- Description Box -->
+            <div id="adu-description-box" class="project-description">
+                <h3 id="adu-title" class="text-xl font-bold text-slate-800 mb-2"></h3>
+                <p id="adu-description" class="text-base text-slate-600"></p>
+            </div>
+        </section>
+
+
         <!-- Section: Next Page -->
-        <section id="next-page" class="section-compact bg-white border-t border-slate-200">
+        <section id="next-page" class="section-compact bg-white">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="text-2xl font-bold text-slate-800 leading-snug">How my leadership aligns with your values...</h2>
-                <p class="mt-2 text-slate-600 max-w-2xl mx-auto">The next page details my cultural fit and "people-first" leadership philosophy.</p>
+                <p class="mt-2 text-slate-600 max-w-2xl mx-auto">The next page details my cultural fit and leadership philosophy.</p>
                 <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
                     <a href="fit.html" class="w-full sm:w-auto flex items-center justify-center gap-x-3 bg-teal-600 text-white font-semibold py-3 px-8 rounded-lg hover:bg-teal-700 transition-colors text-lg shadow-md hover:shadow-lg transform hover:-translate-y-1">
                         View Leadership & Fit
@@ -221,7 +262,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             
-            // --- UPDATED Project Data with softened language ---
+            // --- Data for Project Carousel ---
             const projectData = [
                 { 
                     img: "https://res.cloudinary.com/dq7glunwv/image/upload/v1762145892/Picture_4_ssk7cj.jpg", 
@@ -295,66 +336,124 @@
                 }
             ];
 
-            // --- Populate Swiper Slides ---
-            const swiperWrapper = document.getElementById('swiper-wrapper-dynamic');
-            projectData.forEach(project => {
-                const slide = document.createElement('div');
-                slide.classList.add('swiper-slide');
-                slide.innerHTML = `<img src="${project.img}" alt="Project at ${project.location}" onerror="this.onerror=null; this.src='https://placehold.co/500x350/e2e8f0/475569?text=Image+Not+Found';" />`;
-                swiperWrapper.appendChild(slide);
-            });
-
-            // --- Initialize Swiper ---
-            const swiper = new Swiper('.swiper', {
-                effect: 'coverflow',
-                grabCursor: true,
-                centeredSlides: true,
-                slidesPerView: 'auto', // Shows partial slides on the sides
-                loop: true, // Loops the 14 images
-                coverflowEffect: {
-                    rotate: 30,       // Angle of the side slides
-                    stretch: 0,
-                    depth: 100,       // Z-depth of the side slides
-                    modifier: 1,      // Effect multiplier
-                    slideShadows: true, // Adds shadows to side slides
+            // --- UPDATED: Data for ADU Carousel ---
+            const aduData = [
+                { 
+                    img: "https://res.cloudinary.com/dq7glunwv/image/upload/v1762228458/Prototype_1_ygleke.jpg", 
+                    title: "Concept 1: Modern Park Model", 
+                    description: "This design explores a single-level park model with natural wood siding and an expansive deck, ideal for blending with a natural landscape." 
                 },
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
+                { 
+                    img: "https://res.cloudinary.com/dq7glunwv/image/upload/v1762228459/Prototype_2_vtolsz.jpg", 
+                    title: "Concept 2: Compact Footprint ADU", 
+                    description: "A 400-sq-ft, one-bedroom ADU concept focused on a smart, open-plan layout that minimizes material waste." 
                 },
-            });
+                { 
+                    img: "https://res.cloudinary.com/dq7glunwv/image/upload/v1762228461/Prototype_3_djknth.jpg", 
+                    title: "Concept 3: Natural Light Studio", 
+                    description: "This studio concept uses post-and-beam construction with floor-to-ceiling glass to create an airy, open feel on a small footprint." 
+                },
+                { 
+                    img: "https://res.cloudinary.com/dq7glunwv/image/upload/v1762228462/Prototype_4_qhrtle.jpg", 
+                    title: "Concept 4: Classic Gabled ADU", 
+                    description: "A traditional gabled roof design that could be easily adapted to match existing homes, making it a versatile addition to Mint's catalog." 
+                },
+                { 
+                    img: "https://res.cloudinary.com/dq7glunwv/image/upload/v1762228464/Prototype_5_liaxd5.jpg", 
+                    title: "Concept 5: Two-Story Modular Residence", 
+                    description: "Expanding on ADU principles, this is a full two-story modular home concept designed for efficient factory production and on-site assembly." 
+                },
+                { 
+                    img: "https://res.cloudinary.com/dq7glunwv/image/upload/v1762228465/Prototype_6_cmgnqw.jpg", 
+                    title: "Concept 6: Multi-Unit Modular", 
+                    description: "This concept showcases a row of modern, two-story modular units, demonstrating a scalable solution for developers." 
+                },
+                { 
+                    img: "https://res.cloudinary.com/dq7glunwv/image/upload/v1762228467/Prototype_7_zdy7x1.jpg", 
+                    title: "Concept 7: High-End Glass & Steel", 
+                    description: "A premium, two-story modular residence concept using a steel frame and glass curtain walls, pushing the boundaries of factory-built luxury." 
+                },
+                { 
+                    img: "https://res.cloudinary.com/dq7glunwv/image/upload/v1762228469/Prototype_8_pjywwl.jpg", 
+                    title: "Concept 8: Urban Infill ADU", 
+                    description: "A compact, two-story ADU designed for narrow urban lots, featuring a green wall to maximize a connection to nature." 
+                },
+                { 
+                    img: "https://res.cloudinary.com/dq7glunwv/image/upload/v1762228470/Prototype_9_mny3r9.jpg", 
+                    title: "Concept 9: The 'California Modern' Residence", 
+                    description: "This two-story modular home concept features a second-floor balcony and large overhangs, blending indoor and outdoor living." 
+                }
+            ];
 
-            // --- Sync Description Box ---
-            const locationEl = document.getElementById('project-location');
-            const descriptionEl = document.getElementById('project-description');
-
-            // Function to update text
-            function updateDescription(index) {
-                // Fade out text
-                locationEl.style.opacity = 0;
-                descriptionEl.style.opacity = 0;
-                // Add min-height to prevent jank
-                locationEl.parentElement.style.minHeight = '120px'; 
-
-                setTimeout(() => {
-                    // Update text
-                    const activeProject = projectData[index];
-                    locationEl.textContent = activeProject.location;
-                    descriptionEl.textContent = activeProject.description;
-                    
-                    // Fade in text
-                    locationEl.style.opacity = 1;
-                    descriptionEl.style.opacity = 1;
-                }, 150); // Small delay to allow fade out
+            // --- Generic function to populate a swiper ---
+            function populateSwiper(wrapperId, data) {
+                const swiperWrapper = document.getElementById(wrapperId);
+                if (!swiperWrapper) return;
+                
+                data.forEach(item => {
+                    const slide = document.createElement('div');
+                    slide.classList.add('swiper-slide');
+                    const altText = item.location || item.title || 'Project Image';
+                    slide.innerHTML = `<img src="${item.img}" alt="${altText}" onerror="this.onerror=null; this.src='https://placehold.co/500x350/e2e8f0/475569?text=Image+Not+Found';" />`;
+                    swiperWrapper.appendChild(slide);
+                });
             }
 
-            // Initial load
-            updateDescription(swiper.realIndex);
+            // --- Generic function to initialize a swiper ---
+            function initializeSwiper(containerClass, navNextClass, navPrevClass, data, titleEl, descEl) {
+                const swiper = new Swiper(containerClass, {
+                    effect: 'coverflow',
+                    grabCursor: true,
+                    centeredSlides: true,
+                    slidesPerView: 'auto',
+                    loop: true,
+                    coverflowEffect: {
+                        rotate: 30,
+                        stretch: 0,
+                        depth: 100,
+                        modifier: 1,
+                        slideShadows: true,
+                    },
+                    navigation: {
+                        nextEl: navNextClass,
+                        prevEl: navPrevClass,
+                    },
+                });
 
-            // Update on slide change
-            swiper.on('slideChange', () => {
+                // Sync Description Box
+                const titleElement = document.getElementById(titleEl);
+                const descriptionElement = document.getElementById(descEl);
+                const descriptionBox = document.getElementById(titleEl).parentElement;
+
+                function updateDescription(index) {
+                    const activeData = data[index];
+                    if (!activeData) return;
+
+                    descriptionBox.style.opacity = 0;
+
+                    setTimeout(() => {
+                        titleElement.textContent = activeData.location || activeData.title;
+                        descriptionElement.textContent = activeData.description;
+                        descriptionBox.style.opacity = 1;
+                    }, 150);
+                }
+
+                // Initial load
                 updateDescription(swiper.realIndex);
-            });
+
+                // Update on slide change
+                swiper.on('slideChange', () => {
+                    updateDescription(swiper.realIndex);
+                });
+            }
+
+            // --- Populate and Initialize Carousels ---
+            populateSwiper('swiper-wrapper-projects', projectData);
+            initializeSwiper('.swiper-projects', '.swiper-button-next-projects', '.swiper-button-prev-projects', projectData, 'project-location', 'project-description');
+
+            populateSwiper('swiper-wrapper-adu', aduData);
+            initializeSwiper('.swiper-adu', '.swiper-button-next-adu', '.swiper-button-prev-adu', aduData, 'adu-title', 'adu-description');
+
 
             // --- Mobile Menu Logic ---
             const mobileMenuButton = document.getElementById('mobile-menu-button');
